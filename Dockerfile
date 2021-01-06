@@ -20,7 +20,10 @@ RUN apk update && \
     echo "Downloading PaperMC from $url" && \
     curl "$url" > /opt/paper.jar && \
     echo -e "Version: $VERSION\nBuild: $BUILD" > /opt/version.txt && \
-    echo "eula=true" > /data/eula.txt
+    echo "eula=true" > /data/eula.txt && \
+    mkdir /logs && \
+    adduser minecraft -D -G root && \
+    chown -R minecraft:root /data /logs
 RUN echo "Compiling MCRCon..." &&\
     apk add make git build-base && \
     git clone https://github.com/tiiffi/mcrcon /tmp/mcrcon && \
@@ -34,6 +37,7 @@ RUN echo "Compiling MCRCon..." &&\
 RUN echo "Installing Dinnerbone's mcstatus." && \
     apk add python3 py3-pip && \
     pip3 install mcstatus
+USER minecraft
 EXPOSE 25565 25575
 HEALTHCHECK --interval=30s --timeout=15s --start-period=60s --retries=10 CMD /usr/bin/mcstatus localhost:25565 status
 VOLUME /data /logs
