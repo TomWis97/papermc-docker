@@ -34,7 +34,7 @@ RUN echo "Compiling MCRCon..." &&\
 RUN echo "Installing Dinnerbone's mcstatus." && \
     apk add python3 py3-pip && \
     pip3 install mcstatus
-EXPOSE 25565 25575 # Expose both server and RCON.
+EXPOSE 25565 25575
 HEALTHCHECK --interval=30s --timeout=15s --start-period=60s --retries=10 CMD /usr/bin/mcstatus localhost:25565 status
 VOLUME /data /logs
 ENTRYPOINT /opt/entrypoint.sh
