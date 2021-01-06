@@ -1,5 +1,5 @@
 FROM alpine:latest
-ARG VERSION=latest
+ARG VERSION=1.15.2
 ARG BUILD=latest
 ENV JAVA_XMS=2G \
     JAVA_XMX=2G \
