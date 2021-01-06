@@ -1,6 +1,6 @@
 FROM alpine:latest
-ARG VERSION=latest \
-    BUILD=latest
+ARG VERSION=latest
+ARG BUILD=latest
 ENV JAVA_XMS=2G \
     JAVA_XMX=2G \
     RCON_PASSWORD=ChangeMe \
