@@ -36,7 +36,7 @@ RUN echo "Compiling MCRCon..." &&\
     echo 'export MCRCON_PASS="$RCON_PASSWORD"' >> /etc/profile
 RUN echo "Installing Dinnerbone's mcstatus." && \
     apk add python3 py3-pip && \
-    pip3 install mcstatus
+    pip3 install mcstatus --ignore-installed six
 USER minecraft
 EXPOSE 25565 25575
 HEALTHCHECK --interval=30s --timeout=15s --start-period=60s --retries=10 CMD /usr/bin/mcstatus localhost:25565 status
