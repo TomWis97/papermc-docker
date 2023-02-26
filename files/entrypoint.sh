@@ -13,9 +13,9 @@ start() {
         echo "Error: JAVA_XMS environment variable not set!"
         exit 1
     fi
-    if [ -z "$JAVA_XMS" ]
+    if [ -z "$JAVA_XMX" ]
     then
-        echo "Error: JAVA_XMS environment variable not set!"
+        echo "Error: JAVA_XMX environment variable not set!"
         exit 1
     fi
     echo -e "\nConfigured Java Xms: ${JAVA_XMS}\nConfigured Java Xmx: ${JAVA_XMX}\n"
