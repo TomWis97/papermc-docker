@@ -8,7 +8,7 @@ ENV JAVA_XMS=2G \
 WORKDIR /data
 ADD files /opt
 RUN apk update && \
-    apk add openjdk17-jre jq curl bash rcon && \
+    apk add openjdk19-jre jq curl bash rcon && \
     echo getting version && \
     { [ "$VERSION" == "latest" ] && VERSION=$(curl -s https://papermc.io/api/v2/projects/paper | jq -r '.versions[-1]') ; } ; \
     echo "Using PaperMC version $VERSION" && \
